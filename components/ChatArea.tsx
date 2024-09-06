@@ -464,53 +464,6 @@ const ConversationHeader: React.FC<ConversationHeaderProps> = ({
         )}
       </div>
       <div className="flex space-x-2 w-full sm:w-auto">
-        <DropdownMenu>
-          <DropdownMenuTrigger asChild>
-            <Button
-              variant="outline"
-              size="sm"
-              className="flex-grow text-muted-foreground sm:flex-grow-0"
-            >
-              {models.find((m) => m.id === selectedModel)?.name}
-              <ChevronDown className="ml-2 h-4 w-4" />
-            </Button>
-          </DropdownMenuTrigger>
-          <DropdownMenuContent>
-            {models.map((model) => (
-              <DropdownMenuItem
-                key={model.id}
-                onSelect={() => setSelectedModel(model.id)}
-              >
-                {model.name}
-              </DropdownMenuItem>
-            ))}
-          </DropdownMenuContent>
-        </DropdownMenu>
-
-        <DropdownMenu>
-          <DropdownMenuTrigger asChild>
-            <Button
-              variant="outline"
-              size="sm"
-              className="flex-grow text-muted-foreground  sm:flex-grow-0"
-            >
-              {knowledgeBases.find((kb) => kb.id === selectedKnowledgeBase)
-                ?.name || "Select KB"}
-              <ChevronDown className="ml-2 h-4 w-4" />
-            </Button>
-          </DropdownMenuTrigger>
-          <DropdownMenuContent>
-            {knowledgeBases.map((kb) => (
-              <DropdownMenuItem
-                key={kb.id}
-                onSelect={() => setSelectedKnowledgeBase(kb.id)}
-              >
-                {kb.name}
-              </DropdownMenuItem>
-            ))}
-          </DropdownMenuContent>
-        </DropdownMenu>
-
         {/* Campo de input para CPF */}
         <input
           type="text"
