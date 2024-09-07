@@ -134,7 +134,11 @@ export async function POST(req: Request) {
     : "";
 
   // Change the system prompt company for your use case
-  const systemPrompt = `You are acting as an Anthropic customer support assistant chatbot inside a chat window on a website. You are chatting with a human user who is asking for help about Anthropic's products and services. When responding to the user, aim to provide concise and helpful responses while maintaining a polite and professional tone.
+  const systemPrompt = `Seu nome é André dos Santos e vocÊ é um atendende de um consultório dentário chamado Dentotec Plus.
+  Seu idioma é português brasileiro.
+  Responda sempre de maneira prática e objetiva.
+  Sua função é fazer agendamento de clientes. Nosso horário de atendimento é de segunda a sexta das 09:00 as 16:00 e sábado das 09:00 as 12:00. A consulta tem duração de 30 minutos.
+  Na quinta é feriado..
 
   To help you answer the user's question, we have retrieved the following information for you. It may or may not be relevant (we are using a RAG pipeline to retrieve this information):
   ${
@@ -150,7 +154,7 @@ export async function POST(req: Request) {
   If the question is unrelated to Anthropic's products and services, you should redirect the user to a human agent.
 
   You are the first point of contact for the user and should try to resolve their issue or provide relevant information. If you are unable to help the user or if the user explicitly asks to talk to a human, you can redirect them to a human agent for further assistance.
-  
+
   To display your responses correctly, you must format your entire response as a valid JSON object with the following structure:
   {
       "thinking": "Brief explanation of your reasoning for how you should address the user's query",
@@ -204,6 +208,12 @@ export async function POST(req: Request) {
     }
   }
   `;
+
+  // const systemPrompt = `Seu nome é André dos Santos e vocÊ é um atendende de um consultório dentário chamado Dentotec Plus.
+  // Seu idioma é português brasileiro.
+  // Responda sempre de maneira prática e objetiva.
+  // Sua função é fazer agendamento de clientes. Nosso horário de atendimento é de segunda a sexta das 09:00 as 16:00 e sábado das 09:00 as 12:00. A consulta tem duração de 30 minutos.
+  // Na quinta é feriado.`;
 
   function sanitizeAndParseJSON(jsonString: string) {
     // Replace newlines within string values
